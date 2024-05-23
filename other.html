@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <p class="printText">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus, accusantium!</p>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis asperiores quam consequuntur dolorem vel veritatis, tenetur qui eligendi quia, deleniti tempora ab recusandae adipisci aut, illum aliquam. Animi, quae expedita!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae in aperiam amet molestias debitis optio necessitatibus at asperiores?</p>
+    <img class="randomPosition" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/President.gov.ua_emblem.svg/1200px-President.gov.ua_emblem.svg.png" alt="#" width="100" height="100" style="position: fixed; top: 0; left: 0;">
+    <script>
+        // 1
+        const textNode = document.querySelector('.printText');
+        function printText(textNode, fontSize) {
+            textNode.style.fontSize = fontSize + 'px';
+        }
+        printText(textNode, 30);
+        // 2
+        function printImageInRandomPosition() {
+            const image = document.querySelector('.randomPosition');
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+            const randomTop = (Math.floor(Math.random() * windowHeight)) - image.offsetHeight;
+            const randomLeft = (Math.floor(Math.random() * windowWidth)) - image.offsetWidth;
+            image.style.top = randomTop + 'px';
+            image.style.left = randomLeft + 'px';
+        }
+        const timer = setInterval(printImageInRandomPosition, 1000);
+        // 3
+        const allParagraphs = document.getElementsByTagName('p');
+        for (const paragraph of allParagraphs) {
+            paragraph.setAttribute('style', 'font-size: 15px;');
+        }
+    </script>
+</body>
+</html>
